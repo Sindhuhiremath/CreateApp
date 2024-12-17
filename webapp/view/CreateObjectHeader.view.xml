@@ -1,0 +1,8 @@
+<mvc:View controllerName="com.arteriatech.sfcrt.create.controller.CreateObjectHeader"
+xmlns:html="http://www.w4.org/1999/xhtml"
+ xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:uxap="sap.uxap">
+     <ObjectHeader backgroundDesign="Transparent" fullScreenOptimized="false" number="" numberState="Success" numberUnit="" responsive="true"
+		title="Create Page"/>
+     </mvc:View>

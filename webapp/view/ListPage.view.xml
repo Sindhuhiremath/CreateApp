@@ -1,0 +1,16 @@
+<mvc:View controllerName="com.arteriatech.sfcrt.create.controller.ListPage"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+  <Page title="List">
+  <content>
+      <mvc:XMLView viewName="com.arteriatech.sfcrt.create.view.List"></mvc:XMLView>
+      </content> 
+       <footer>
+        <Toolbar>
+            <ToolbarSpacer ></ToolbarSpacer>
+            <Button id="CreateButtonID" text="Create" press="onCreate"></Button>
+        </Toolbar>
+    </footer> 
+  </Page>
+   
+</mvc:View>

@@ -1,0 +1,244 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.arteriatech.sfcrt.create",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.3",
+      "toolsId": "adac6d31-399f-4ca4-85a5-f596a7e01391"
+    },
+    "dataSources": {
+      "PCGW":{
+        "uri": "/PCGW/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "model/PCGW/metadata.xml"
+        }
+      },
+      "PYGWHANA":{
+        "uri": "/PYGWHANA/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "model/PYGWHANA/metadata.xml"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "create-Display": {
+          "semanticObject": "create",
+          "action": "Display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.130.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.arteriatech.sfcrt.create.i18n.i18n"
+        }
+      },
+      "ppcutili18n":{
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "create/ppcutil/utils/i18n/i18n.properties"
+        }
+      },
+      "PCGW":{
+        "dataSource": "PCGW",
+        "preload": true,
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "defaultOperationMode":"Auto",
+          "defaultUpdateMethod":"PUT",
+          "useBatch":true,
+          "defaultBindingMode": "Default",
+          "tokenHandling": true,
+          "disableHeadRequestForToken": true
+        }
+      },
+      "PYGWHANA":{
+        "dataSource": "PYGWHANA",
+        "preload": true,
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "defaultOperationMode":"Auto",
+          "defaultUpdateMethod":"PUT",
+          "useBatch":true,
+          "defaultBindingMode": "Default",
+          "tokenHandling": true,
+          "disableHeadRequestForToken": true
+        }
+    }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.arteriatech.sfcrt.create.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+       
+        {
+          "name": "ListPage",
+          "pattern": "",
+          "target": [
+            "ListPage"
+          ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail/{contextPath}",
+          "target":[
+            "Detail"
+          ]
+        },
+        {
+          "name": "CreatePage",
+          "pattern": "CreatePage",
+          "target":[
+            "CreatePage"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "ListPage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "ListPage",
+          "viewName": "ListPage"
+        },
+        "List": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "List",
+          "viewName": "List"
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Detail",
+          "viewName": "Detail"
+        },
+        "DetailObjectHeader":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DetailObjectHeader",
+          "viewName": "DetailObjectHeader"
+        },
+        "DetailBasic":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DetailBasic",
+          "viewName": "DetailBasic"
+        },
+        "DetailBusiness":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DetailBusiness",
+          "viewName": "DetailBusiness"
+        },
+        "CreatePage":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreatePage",
+          "viewName": "CreatePage"
+        },
+        "CreateObjectHeader":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreateObjectHeader",
+          "viewName": "CreateObjectHeader"
+        },
+        "CreateObjectDetails":{
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CreateObjectDetails",
+          "viewName": "CreateObjectDetails"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.arteriatech.sfcrt.create.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "comarteriatechsfcrtcreate"
+  }
+}
